@@ -32,12 +32,23 @@
         <label for="longitude">Longitude</label>
         <input type=longitude #cacheLong placeholder="{{longitude}}">
       </div>
-      <button (click)="getListingsByLatLong(cacheLat.value, cacheLong.value)">Get Listings</button>
+      <button (click)="getListingsByLatLong(cacheLat.value, cacheLong.value)">View Neartest Listing</button>
+      <button (click)="getAllListingsByLatLong(cacheLat.value, cacheLong.value)">View All Nearest Results</button>
     </form>
 
     <div *ngIf="cacheResults">
       <hr>
-      <p>Nearest Listing: {{nearestListing?.formatted_address}}</p>
+      <h3>Nearest Listing:</h3>
+      <p><strong>Address:</strong> {{nearestListing?.formatted_address}}</p>
+      <p><strong>Lat, Long:</strong> {{nearestListing?.geometry.location.lat}}, {{nearestListing?.geometry.location.lng}}</p>
+    </div>
+
+    <div *ngIf="allCacheResults">
+      <hr>
+      <h3>All Near Listings:</h3>
+      <div *ngFor="let listing of listings">
+        <p><strong>Lat, Long:</strong> {{listing?.geometry.location.lat}}, {{listing?.geometry.location.lng}}</p>
+      </div>
     </div>
   </div>
 

@@ -16,6 +16,7 @@ export class SearchFormComponent implements OnInit {
   longitude = null;
   latLongResults: boolean = false;
   cacheResults: boolean = false;
+  allCacheResults: boolean = false;
 
   constructor(private geocacherService: GeocacherService) { }
 
@@ -29,11 +30,17 @@ export class SearchFormComponent implements OnInit {
 
   getListingsByLatLong(latitude: string, longitude: string) {
     this.geocacherService.getListingsByLatLong(latitude, longitude).subscribe(response =>{
-      this.listings = response.json().results;
       this.nearestListing = response.json().results[0];
-      console.log(this.nearestListing.formatted_address);
     });
     this.cacheResults = true;
+  }
+
+  getAllListingsByLatLong(latitude: string, longitude: string) {
+    this.geocacherService.getListingsByLatLong(latitude, longitude).subscribe(response =>{
+      this.listings = response.json().results;
+      console.log(response.json().results);
+    });
+    this.allCacheResults = true;
   }
 
   ngOnInit() {
