@@ -25,4 +25,5 @@ export class GeocacherService {
       this.listingService.addListing(foundListing);
     });
   }
+
 }

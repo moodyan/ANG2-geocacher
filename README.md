@@ -12,9 +12,10 @@ _An app that manages the listings of various Geocaching sites._
 
 | Description  | Input Example | Output Example |
 | ------------- | ------------- | ------------- |
-| The program allows users to enter in the latitude and longitude of a known geocache and receive the closest corresponding physical address of its location.  | Lat/Long  | Returns a single listing.  |
+| The program allows users to enter in the latitude and longitude of a known geocache and receive the closest corresponding physical address of its location.  | Lat/Long  | Returns option of a single nearest listing or lats/longs of a list of nearest geocaches.  |
 | The program allows users to enter in the physical address of a geocache that they have hidden and receive the corresponding latitude and longitude.  | Address  | Lat/Long  |
-| The program allows users to save information about geocaches to the site by either the latitude and longitude or by the physical address of its location.  | Save  | List of saved geocaches  |
+| The program allows users to save their geocache search to the site.  | Save  | List of saved geocache locations.  |
+| The program allows users to delete locations from their saved listings.  | Delete  | --  |
 
 ## Setup/Installation Requirements
 

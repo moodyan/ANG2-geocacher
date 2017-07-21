@@ -18,4 +18,8 @@ export class UserSavedListingsComponent implements OnInit {
     this.savedListings = this.listingService.getListings();
   }
 
+  deleteListing(selectedListing: Listing) {
+    this.listingService.deleteListing(selectedListing);
+    alert("This listing has been deleted from your list of saved locations.");
+  }
 }

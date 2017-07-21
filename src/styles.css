@@ -1,1 +1,16 @@
 /* You can add global styles to this file, and also import other style files */
+body {
+  background: url("http://www.hdwallpaperspulse.com/wp-content/uploads/2014/04/23/foggy-forest1.jpg");
+  font-family: sans-serif;
+}
+
+button {
+  background-color: white;
+  border-color: 3px solid black;
+}
+
+button:hover {
+  color: white;
+  background-color: black;
+  border-color: 3px solid white;
+}

@@ -1,6 +1,9 @@
-<h1>Your Saved Listings:</h1>
-<div *ngFor="let listing of savedListings | async">
-  <h4>{{listing.address}}</h4>
-  <p>{{listing.latitude}}, {{listing.longitude}}</p>
-  <!-- <button (click)="deleteListing(listing)">Delete Photo</button> -->
+<div class="forms">
+
+  <h1>Your Saved Listings:</h1>
+  <div *ngFor="let listing of savedListings | async">
+    <h4>{{listing.address}}</h4>
+    <p>{{listing.latitude}}, {{listing.longitude}}</p>
+    <button (click)="deleteListing(listing)">Delete Listing</button>
+  </div>
 </div>
