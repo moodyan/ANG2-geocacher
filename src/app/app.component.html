@@ -1,3 +1,16 @@
-<h1>
-  {{title}}
-</h1>
+<nav class="navbar navbar-default">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <a class="navbar-brand" routerLink="">Geocacher</a>
+    </div>
+    <ul class="nav navbar-nav navbar-right">
+      <li><a routerLink="search">Search Listings</a></li>
+      <!-- <li><a routerLink="find">Find Your Lat/Long</a></li> -->
+      <!-- <li><a routerLink="saved">Saved Listings</a></li> -->
+    </ul>
+  </div>
+</nav>
+
+<div class="container">
+  <router-outlet></router-outlet>
+</div>

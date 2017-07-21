@@ -1,0 +1,12 @@
+<h1>Search for the Nearest Geocache</h1>
+
+<form>
+  <div class="form-group">
+    <label for="latitude">Latitude</label>
+    <input type=latitude #cacheLat>
+    <br>
+    <label for="longitude">Longitude</label>
+    <input type=longitude #cacheLong>
+  </div>
+  <button (click)="getListingsByLatLong(cacheLat.value, cacheLong.value)">Get Photos</button>
+</form>
