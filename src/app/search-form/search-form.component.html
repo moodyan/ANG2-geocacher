@@ -41,6 +41,7 @@
       <h3>Nearest Listing:</h3>
       <p><strong>Address:</strong> {{nearestListing?.formatted_address}}</p>
       <p><strong>Lat, Long:</strong> {{nearestListing?.geometry.location.lat}}, {{nearestListing?.geometry.location.lng}}</p>
+      <button (click)="saveListing(nearestListing?.formatted_address, nearestListing?.geometry.location.lat, nearestListing?.geometry.location.lng)">Save This Listing</button>
     </div>
 
     <div *ngIf="allCacheResults">

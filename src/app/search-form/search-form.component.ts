@@ -1,12 +1,13 @@
 import { Component, OnInit } from '@angular/core';
 import { Observable } from 'rxjs/Observable';
 import { GeocacherService } from '../geocacher.service';
+import { ListingService } from '../listing.service';
 
 @Component({
   selector: 'app-search-form',
   templateUrl: './search-form.component.html',
   styleUrls: ['./search-form.component.css'],
-  providers: [ GeocacherService ]
+  providers: [ GeocacherService, ListingService ]
 })
 
 export class SearchFormComponent implements OnInit {
@@ -14,6 +15,7 @@ export class SearchFormComponent implements OnInit {
   nearestListing = null;
   latitude = null;
   longitude = null;
+  address = null;
   latLongResults: boolean = false;
   cacheResults: boolean = false;
   allCacheResults: boolean = false;
@@ -38,9 +40,13 @@ export class SearchFormComponent implements OnInit {
   getAllListingsByLatLong(latitude: string, longitude: string) {
     this.geocacherService.getListingsByLatLong(latitude, longitude).subscribe(response =>{
       this.listings = response.json().results;
-      console.log(response.json().results);
     });
     this.allCacheResults = true;
+  }
+
+  saveListing(address, latitude, longitude){
+    this.geocacherService.saveListing(address, latitude, longitude);
+    alert("The nearest listing from this search has been saved to the database.")
   }
 
   ngOnInit() {
