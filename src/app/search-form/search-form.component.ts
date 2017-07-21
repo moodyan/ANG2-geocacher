@@ -8,17 +8,32 @@ import { GeocacherService } from '../geocacher.service';
   styleUrls: ['./search-form.component.css'],
   providers: [ GeocacherService ]
 })
+
 export class SearchFormComponent implements OnInit {
   listings: any[]=null;
-    constructor(private geocacherService: GeocacherService) { }
+  nearestListing = null;
+  latitude = null;
+  longitude = null;
+  latLongResults: boolean = false;
+  cacheResults: boolean = false;
 
-    getListingsByLatLong(latitude: string, longitude: string) {
-      this.geocacherService.getListingsByLatLong(latitude, longitude).subscribe(response =>{
+  constructor(private geocacherService: GeocacherService) { }
 
-        this.listings = response.json();
-        console.log(this.listings);
-      
+  getLatLongByLocation(street: string, city: string, state: string) {
+    this.geocacherService.getLatLongByLocation(street, city, state).subscribe(response =>{
+      this.latitude = response.json().results[0].geometry.location.lat;
+      this.longitude = response.json().results[0].geometry.location.lng;
     });
+    this.latLongResults = true;
+  }
+
+  getListingsByLatLong(latitude: string, longitude: string) {
+    this.geocacherService.getListingsByLatLong(latitude, longitude).subscribe(response =>{
+      this.listings = response.json().results;
+      this.nearestListing = response.json().results[0];
+      console.log(this.nearestListing.formatted_address);
+    });
+    this.cacheResults = true;
   }
 
   ngOnInit() {
