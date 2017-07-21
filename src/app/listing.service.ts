@@ -14,4 +14,8 @@ export class ListingService {
     this.listings.push(newListing);
   }
 
+  getListings() {
+    return this.listings;
+  }
+
 }

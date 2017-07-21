@@ -9,6 +9,7 @@ import { AngularFireModule } from 'angularfire2';
 import { AngularFireDatabaseModule } from 'angularfire2/database';
 import { HomeComponent } from './home/home.component';
 import { SearchFormComponent } from './search-form/search-form.component';
+import { UserSavedListingsComponent } from './user-saved-listings/user-saved-listings.component';
 
 export const firebaseConfig = {
   apiKey: masterFirebaseConfig.apiKey,
@@ -21,7 +22,8 @@ export const firebaseConfig = {
   declarations: [
     AppComponent,
     HomeComponent,
-    SearchFormComponent
+    SearchFormComponent,
+    UserSavedListingsComponent
   ],
   imports: [
     BrowserModule,
